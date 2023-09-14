@@ -25,3 +25,15 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+.todo-item {
+  border: 1px solid rgb(238, 233, 233);
+  border-radius: 5px;
+}
+.list-todos {
+  margin-top: 20px;
+}
+
+.btn-wt {
+  width: 50px;
+}
