@@ -1,4 +1,12 @@
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
 function FormSearch() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div className="form-search">
       <form className="row g-3">
@@ -11,8 +19,12 @@ function FormSearch() {
           />
         </div>
         <div className="col-auto">
-          <button type="button" className="btn btn-primary mb-3">
-            Search
+          <button
+            onClick={handleShow}
+            type="button"
+            className="btn btn-primary mb-3"
+          >
+            Create
           </button>
         </div>
       </form>
@@ -27,6 +39,28 @@ function FormSearch() {
           In-progress
         </button>
       </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Create Todo</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <input
+            type="text"
+            className="form-control"
+            id="create"
+            placeholder="Enter todo name ..."
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

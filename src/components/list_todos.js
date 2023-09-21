@@ -1,12 +1,18 @@
 import TodoItem from "./todo_item";
 
-function ListTodos() {
-  return (
-    <div className="list-todos">
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-    </div>
-  );
+function ListTodo(props) {
+  let datas = props.listTodos.map(function (todo, index) {
+    return (
+      <TodoItem
+        index={index}
+        deleteTodo={props.deleteTodo}
+        key={index}
+        name={todo.name}
+      />
+    );
+  });
+
+  return <div className="list-todos">{datas}</div>;
 }
-export default ListTodos;
+
+export default ListTodo;
